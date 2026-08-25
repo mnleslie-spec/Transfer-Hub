@@ -1,1 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Transfer Hub | Your Roadmap to What's Next</title>
+
+    <meta
+        name="description"
+        content="A student-centered transfer resource for Madison College students."
+    >
+
+    <style>
+        :root {
+            --navy: #17324d;
+            --teal: #287c78;
+            --gold: #e5b84b;
+            --cream: #f7f5ef;
+            --white: #ffffff;
+            --text: #24313d;
+            --muted: #63717d;
+            --border: #dfe5e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--teal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        /* HERO */
+
+        .hero {
+            background: var(--cream);
+            padding: 90px 24px 80px;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--teal);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            line-height: 1.05;
+            color: var(--navy);
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--teal);
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 32px;
+            font-size: 1.15rem;
+            color: var(--muted);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .button-secondary {
+            background: var(--white);
+            color: var(--navy);
+            border: 1px solid var(--border);
+        }
+
+        /* GENERAL SECTIONS */
+
+        .section {
+            padding: 80px 24px;
+        }
+
+        .section-container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* ROADMAP */
+
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .roadmap-card {
+            position: relative;
+            padding: 28px 22px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--white);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(23, 50, 77, 0.09);
+        }
+
+        .stage-number {
+            color: var(--teal);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .roadmap-card h3 {
+            color: var(--navy);
+            font-size: 1.35rem;
+            margin: 10px 0 4px;
+        }
+
+        .stage-name {
+            color: var(--teal);
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .roadmap-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* QUICK RESOURCES */
+
+        .resources {
+            background: var(--cream);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 22px;
+            transition: transform 0.2s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .resource-icon {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+        }
+
+        .resource-card h3 {
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .resource-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* HELP SECTION */
+
+        .help-box {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 42px;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .help-box h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .help-box p {
+            color: #d9e3ea;
+            margin-bottom: 24px;
+        }
+
+        .help-button {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #d9e3ea;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+            }
+
+            .roadmap,
+            .resource-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .hero {
+                padding: 65px 20px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .roadmap,
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-box {
+                padding: 32px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                Transfer<span>Hub</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#roadmap">My Roadmap</a></li>
+                    <li><a href="#resources">Opportunities</a></li>
+                    <li><a href="#resources">Universities</a></li>
+                    <li><a href="#resources">Deadlines</a></li>
+                    <li><a href="#help">Help</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-container">
+
+                <div class="eyebrow">
+                    Madison College Student Resource
+                </div>
+
+                <h1>
+                    Your roadmap to <span>what's next.</span>
+                </h1>
+
+                <p>
+                    A student-centered resource designed to help Madison College
+                    students plan, prepare, and navigate their transfer journey.
+                </p>
+
+                <div class="button-group">
+                    <a href="#roadmap" class="button button-primary">
+                        Start My Roadmap
+                    </a>
+
+                    <a href="#resources" class="button button-secondary">
+                        Explore Resources
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ROADMAP -->
+
+        <section class="section" id="roadmap">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <h2>Where are you in your journey?</h2>
+
+                    <p>
+                        You don't have to figure out the entire transfer process
+                        at once. Start with where you are now.
+                    </p>
+
+                </div>
+
+
+                <div class="roadmap">
+
+                    <article class="roadmap-card">
+
+                        <div class="stage-number">
+                            Step 01
+                        </div>
+
+                        <h3>First Year</h3>
+
+                        <div class="stage-name">
+                            Exploring
+                        </div>
+
+                        <p>
+                            Explore majors, universities, scholarships,
+                            and your options for the future.
+                        </p>
+
+                    </article>
+
+
+                    <article class="roadmap-card">
+
+                        <div class="stage-number">
+                            Step 02
+                        </div>
+
+                        <h3>Second Year</h3>
+
+                        <div class="stage-name">
+                            Preparing
+                        </div>
+
+                        <p>
+                            Narrow down your options, understand requirements,
+                            and begin building your transfer plan.
+                        </p>
+
+                    </article>
+
+
+                    <article class="roadmap-card">
+
+                        <div class="stage-number">
+                            Step 03
+                        </div>
+
+                        <h3>Application Year</h3>
+
+                        <div class="stage-name">
+                            Applying
+                        </div>
+
+                        <p>
+                            Prepare your applications, track deadlines,
+                            and apply for scholarships.
+                        </p>
+
+                    </article>
+
+
+                    <article class="roadmap-card">
+
+                        <div class="stage-number">
+                            Step 04
+                        </div>
+
+                        <h3>Transfer</h3>
+
+                        <div class="stage-name">
+                            Accepted
+                        </div>
+
+                        <p>
+                            Prepare for your transition, finalize your plans,
+                            and get ready for your next chapter.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK RESOURCES -->
+
+        <section class="section resources" id="resources">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <h2>Find what you need</h2>
+
+                    <p>
+                        Explore resources designed to help you take your next step.
+                    </p>
+
+                </div>
+
+
+                <div class="resource-grid">
+
+                    <article class="resource-card">
+
+                        <div class="resource-icon">💰</div>
+
+                        <h3>Scholarships</h3>
+
+                        <p>
+                            Find scholarships and learn when to start
+                            searching and applying.
+                        </p>
+
+                    </article>
+
+
+                    <article class="resource-card">
+
+                        <div class="resource-icon">💼</div>
+
+                        <h3>Internships</h3>
+
+                        <p>
+                            Explore opportunities that can help you
+                            build experience before transferring.
+                        </p>
+
+                    </article>
+
+
+                    <article class="resource-card">
+
+                        <div class="resource-icon">🏫</div>
+
+                        <h3>Universities</h3>
+
+                        <p>
+                            Explore universities and learn about
+                            transfer pathways and requirements.
+                        </p>
+
+                    </article>
+
+
+                    <article class="resource-card">
+
+                        <div class="resource-icon">📅</div>
+
+                        <h3>Deadlines</h3>
+
+                        <p>
+                            Keep track of important transfer,
+                            scholarship, and application dates.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HELP -->
+
+        <section class="section" id="help">
+
+            <div class="section-container">
+
+                <div class="help-box">
+
+                    <h2>Not sure where to start?</h2>
+
+                    <p>
+                        That's okay. The Transfer Hub is here to help you
+                        figure out what to do next and where to find support.
+                    </p>
+
+                    <a href="#" class="button help-button">
+                        Find Help & Campus Resources
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            <strong>Transfer Hub</strong> — Your roadmap to what's next.
+        </p>
+
+        <p>
+            A student-created resource for Madison College students.
+        </p>
+
+    </footer>
+
+</body>
+</html>
