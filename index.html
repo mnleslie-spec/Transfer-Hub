@@ -12,6 +12,7 @@
     >
 
     <style>
+
         :root {
             --navy: #17324d;
             --teal: #287c78;
@@ -21,6 +22,7 @@
             --text: #24313d;
             --muted: #63717d;
             --border: #dfe5e8;
+            --light-teal: #eaf5f3;
         }
 
         * {
@@ -62,14 +64,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 24px;
         }
 
         .logo {
             font-size: 1.35rem;
             font-weight: 800;
             color: var(--navy);
-            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -82,10 +82,6 @@
             list-style: none;
             font-size: 0.95rem;
             font-weight: 600;
-        }
-
-        .nav-links a {
-            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
@@ -146,11 +142,8 @@
             padding: 13px 22px;
             border-radius: 8px;
             font-weight: 700;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
+            cursor: pointer;
+            border: none;
         }
 
         .button-primary {
@@ -185,7 +178,6 @@
             font-size: clamp(2rem, 4vw, 3rem);
             color: var(--navy);
             margin-bottom: 12px;
-            letter-spacing: -1px;
         }
 
         .section-heading p {
@@ -201,11 +193,11 @@
         }
 
         .roadmap-card {
-            position: relative;
             padding: 28px 22px;
             border: 1px solid var(--border);
             border-radius: 14px;
             background: var(--white);
+            cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -239,6 +231,123 @@
             font-size: 0.95rem;
         }
 
+        .click-note {
+            margin-top: 16px;
+            font-size: 0.82rem;
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        /* ROADMAP DETAIL */
+
+        .roadmap-detail {
+            margin-top: 50px;
+            background: var(--cream);
+            border-radius: 18px;
+            padding: 45px;
+            display: none;
+        }
+
+        .roadmap-detail.active {
+            display: block;
+        }
+
+        .detail-header {
+            margin-bottom: 30px;
+        }
+
+        .detail-header h3 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .detail-header p {
+            color: var(--muted);
+        }
+
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--teal);
+            transition: width 0.3s ease;
+        }
+
+        .checklist {
+            display: grid;
+            gap: 12px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: var(--white);
+            padding: 15px 17px;
+            border-radius: 9px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .check-item input {
+            margin-top: 5px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--teal);
+        }
+
+        .check-item span {
+            flex: 1;
+        }
+
+        .check-item input:checked + span {
+            text-decoration: line-through;
+            color: var(--muted);
+        }
+
+        .detail-resources {
+            margin-top: 35px;
+        }
+
+        .detail-resources h4 {
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .resource-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .resource-tag {
+            background: var(--light-teal);
+            color: var(--teal);
+            padding: 8px 13px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
         /* QUICK RESOURCES */
 
         .resources {
@@ -256,11 +365,6 @@
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 28px 22px;
-            transition: transform 0.2s ease;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-4px);
         }
 
         .resource-icon {
@@ -278,7 +382,7 @@
             font-size: 0.92rem;
         }
 
-        /* HELP SECTION */
+        /* HELP */
 
         .help-box {
             max-width: 850px;
@@ -317,15 +421,13 @@
         footer p {
             color: #d9e3ea;
             font-size: 0.9rem;
-        }
-
-        footer strong {
-            color: var(--white);
+            margin-bottom: 5px;
         }
 
         /* MOBILE */
 
         @media (max-width: 850px) {
+
             .nav-links {
                 display: none;
             }
@@ -337,6 +439,7 @@
         }
 
         @media (max-width: 560px) {
+
             .hero {
                 padding: 65px 20px;
             }
@@ -350,10 +453,15 @@
                 grid-template-columns: 1fr;
             }
 
+            .roadmap-detail {
+                padding: 28px 20px;
+            }
+
             .help-box {
                 padding: 32px 22px;
             }
         }
+
     </style>
 </head>
 
@@ -362,6 +470,7 @@
     <!-- NAVIGATION -->
 
     <header class="navbar">
+
         <div class="nav-container">
 
             <a href="#" class="logo">
@@ -379,6 +488,7 @@
             </nav>
 
         </div>
+
     </header>
 
 
@@ -387,6 +497,7 @@
     <main>
 
         <section class="hero">
+
             <div class="hero-container">
 
                 <div class="eyebrow">
@@ -403,6 +514,7 @@
                 </p>
 
                 <div class="button-group">
+
                     <a href="#roadmap" class="button button-primary">
                         Start My Roadmap
                     </a>
@@ -410,9 +522,11 @@
                     <a href="#resources" class="button button-secondary">
                         Explore Resources
                     </a>
+
                 </div>
 
             </div>
+
         </section>
 
 
@@ -436,7 +550,10 @@
 
                 <div class="roadmap">
 
-                    <article class="roadmap-card">
+                    <article
+                        class="roadmap-card"
+                        onclick="showStage('first')"
+                    >
 
                         <div class="stage-number">
                             Step 01
@@ -453,10 +570,17 @@
                             and your options for the future.
                         </p>
 
+                        <div class="click-note">
+                            View roadmap →
+                        </div>
+
                     </article>
 
 
-                    <article class="roadmap-card">
+                    <article
+                        class="roadmap-card"
+                        onclick="showStage('second')"
+                    >
 
                         <div class="stage-number">
                             Step 02
@@ -473,10 +597,17 @@
                             and begin building your transfer plan.
                         </p>
 
+                        <div class="click-note">
+                            View roadmap →
+                        </div>
+
                     </article>
 
 
-                    <article class="roadmap-card">
+                    <article
+                        class="roadmap-card"
+                        onclick="showStage('application')"
+                    >
 
                         <div class="stage-number">
                             Step 03
@@ -493,10 +624,17 @@
                             and apply for scholarships.
                         </p>
 
+                        <div class="click-note">
+                            View roadmap →
+                        </div>
+
                     </article>
 
 
-                    <article class="roadmap-card">
+                    <article
+                        class="roadmap-card"
+                        onclick="showStage('accepted')"
+                    >
 
                         <div class="stage-number">
                             Step 04
@@ -509,11 +647,481 @@
                         </div>
 
                         <p>
-                            Prepare for your transition, finalize your plans,
-                            and get ready for your next chapter.
+                            Prepare for your transition and get ready
+                            for your next chapter.
                         </p>
 
+                        <div class="click-note">
+                            View roadmap →
+                        </div>
+
                     </article>
+
+                </div>
+
+
+                <!-- FIRST YEAR -->
+
+                <div id="first" class="roadmap-detail">
+
+                    <div class="detail-header">
+
+                        <h3>🌱 First Year — Exploring</h3>
+
+                        <p>
+                            Your goal: build a strong foundation and start
+                            exploring your transfer possibilities.
+                        </p>
+
+                    </div>
+
+                    <div class="progress-container">
+
+                        <div class="progress-info">
+                            <span>Your progress</span>
+                            <span id="first-progress">0%</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                id="first-progress-bar"
+                                class="progress-fill"
+                            ></div>
+                        </div>
+
+                    </div>
+
+                    <div class="checklist">
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="first"
+                                data-task="1"
+                            >
+                            <span>Meet with your academic or transfer advisor</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="first"
+                                data-task="2"
+                            >
+                            <span>Explore potential majors and career paths</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="first"
+                                data-task="3"
+                            >
+                            <span>Research universities you may want to attend</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="first"
+                                data-task="4"
+                            >
+                            <span>Learn how transfer credits work</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="first"
+                                data-task="5"
+                            >
+                            <span>Learn about transfer scholarships</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="first"
+                                data-task="6"
+                            >
+                            <span>Explore internship opportunities</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="first"
+                                data-task="7"
+                            >
+                            <span>Explore research opportunities</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="first"
+                                data-task="8"
+                            >
+                            <span>Build a strong academic foundation</span>
+                        </label>
+
+                    </div>
+
+                    <div class="detail-resources">
+
+                        <h4>Helpful resources</h4>
+
+                        <div class="resource-tags">
+
+                            <span class="resource-tag">
+                                University Guides
+                            </span>
+
+                            <span class="resource-tag">
+                                Scholarships
+                            </span>
+
+                            <span class="resource-tag">
+                                Internships
+                            </span>
+
+                            <span class="resource-tag">
+                                Academic Planning
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SECOND YEAR -->
+
+                <div id="second" class="roadmap-detail">
+
+                    <div class="detail-header">
+
+                        <h3>📚 Second Year — Preparing</h3>
+
+                        <p>
+                            Your goal: turn your ideas into a concrete
+                            transfer plan.
+                        </p>
+
+                    </div>
+
+                    <div class="progress-container">
+
+                        <div class="progress-info">
+                            <span>Your progress</span>
+                            <span id="second-progress">0%</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                id="second-progress-bar"
+                                class="progress-fill"
+                            ></div>
+                        </div>
+
+                    </div>
+
+                    <div class="checklist">
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="second"
+                                data-task="1"
+                            >
+                            <span>Narrow down your university options</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="second"
+                                data-task="2"
+                            >
+                            <span>Confirm your intended major</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="second"
+                                data-task="3"
+                            >
+                            <span>Review university transfer requirements</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="second"
+                                data-task="4"
+                            >
+                            <span>Review your transferable credits</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="second"
+                                data-task="5"
+                            >
+                            <span>Identify required prerequisite courses</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="second"
+                                data-task="6"
+                            >
+                            <span>Create a scholarship list</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="second"
+                                data-task="7"
+                            >
+                            <span>Begin applying for scholarships</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="second"
+                                data-task="8"
+                            >
+                            <span>Monitor transfer application deadlines</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- APPLICATION YEAR -->
+
+                <div id="application" class="roadmap-detail">
+
+                    <div class="detail-header">
+
+                        <h3>📝 Application Year — Applying</h3>
+
+                        <p>
+                            Your goal: prepare and submit strong transfer
+                            applications.
+                        </p>
+
+                    </div>
+
+                    <div class="progress-container">
+
+                        <div class="progress-info">
+                            <span>Your progress</span>
+                            <span id="application-progress">0%</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                id="application-progress-bar"
+                                class="progress-fill"
+                            ></div>
+                        </div>
+
+                    </div>
+
+                    <div class="checklist">
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="application"
+                                data-task="1"
+                            >
+                            <span>Confirm application deadlines</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="application"
+                                data-task="2"
+                            >
+                            <span>Review admission requirements</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="application"
+                                data-task="3"
+                            >
+                            <span>Prepare your application materials</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="application"
+                                data-task="4"
+                            >
+                            <span>Prepare personal statements or essays</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="application"
+                                data-task="5"
+                            >
+                            <span>Request recommendation letters if required</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="application"
+                                data-task="6"
+                            >
+                            <span>Request and send transcripts</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="application"
+                                data-task="7"
+                            >
+                            <span>Submit your university applications</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="application"
+                                data-task="8"
+                            >
+                            <span>Apply for scholarships and financial aid</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCEPTED -->
+
+                <div id="accepted" class="roadmap-detail">
+
+                    <div class="detail-header">
+
+                        <h3>🎓 Transfer — Accepted</h3>
+
+                        <p>
+                            Your goal: prepare for your transition to your
+                            new university.
+                        </p>
+
+                    </div>
+
+                    <div class="progress-container">
+
+                        <div class="progress-info">
+                            <span>Your progress</span>
+                            <span id="accepted-progress">0%</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                id="accepted-progress-bar"
+                                class="progress-fill"
+                            ></div>
+                        </div>
+
+                    </div>
+
+                    <div class="checklist">
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="accepted"
+                                data-task="1"
+                            >
+                            <span>Accept your admission offer</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="accepted"
+                                data-task="2"
+                            >
+                            <span>Review your financial aid</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="accepted"
+                                data-task="3"
+                            >
+                            <span>Confirm your transfer credits</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="accepted"
+                                data-task="4"
+                            >
+                            <span>Send final transcripts if required</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="accepted"
+                                data-task="5"
+                            >
+                            <span>Complete orientation</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="accepted"
+                                data-task="6"
+                            >
+                            <span>Apply for housing if needed</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="accepted"
+                                data-task="7"
+                            >
+                            <span>Register for classes</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input
+                                type="checkbox"
+                                data-stage="accepted"
+                                data-task="8"
+                            >
+                            <span>Connect with your new university</span>
+                        </label>
+
+                    </div>
 
                 </div>
 
@@ -522,7 +1130,7 @@
         </section>
 
 
-        <!-- QUICK RESOURCES -->
+        <!-- RESOURCES -->
 
         <section class="section resources" id="resources">
 
@@ -644,6 +1252,142 @@
         </p>
 
     </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* SHOW ROADMAP STAGE */
+
+        function showStage(stage) {
+
+            const sections =
+                document.querySelectorAll(".roadmap-detail");
+
+            sections.forEach(function(section) {
+                section.classList.remove("active");
+            });
+
+            const selected =
+                document.getElementById(stage);
+
+            selected.classList.add("active");
+
+            selected.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+
+
+        /* SAVE CHECKBOXES */
+
+        const checkboxes =
+            document.querySelectorAll(
+                '.check-item input[type="checkbox"]'
+            );
+
+        checkboxes.forEach(function(checkbox) {
+
+            const stage =
+                checkbox.dataset.stage;
+
+            const task =
+                checkbox.dataset.task;
+
+            const storageKey =
+                "transferHub-" + stage + "-" + task;
+
+            /* LOAD SAVED PROGRESS */
+
+            const saved =
+                localStorage.getItem(storageKey);
+
+            if (saved === "true") {
+                checkbox.checked = true;
+            }
+
+
+            /* SAVE WHEN CHANGED */
+
+            checkbox.addEventListener("change", function() {
+
+                localStorage.setItem(
+                    storageKey,
+                    checkbox.checked
+                );
+
+                updateProgress(stage);
+
+            });
+
+        });
+
+
+        /* UPDATE PROGRESS */
+
+        function updateProgress(stage) {
+
+            const stageCheckboxes =
+                document.querySelectorAll(
+                    '.check-item input[data-stage="' +
+                    stage +
+                    '"]'
+                );
+
+            const completed =
+                document.querySelectorAll(
+                    '.check-item input[data-stage="' +
+                    stage +
+                    '"]:checked'
+                ).length;
+
+            const total =
+                stageCheckboxes.length;
+
+            const percentage =
+                total === 0
+                ? 0
+                : Math.round((completed / total) * 100);
+
+            const progressText =
+                document.getElementById(
+                    stage + "-progress"
+                );
+
+            const progressBar =
+                document.getElementById(
+                    stage + "-progress-bar"
+                );
+
+            if (progressText) {
+                progressText.textContent =
+                    percentage + "%";
+            }
+
+            if (progressBar) {
+                progressBar.style.width =
+                    percentage + "%";
+            }
+
+        }
+
+
+        /* INITIALIZE PROGRESS */
+
+        [
+            "first",
+            "second",
+            "application",
+            "accepted"
+        ].forEach(function(stage) {
+
+            updateProgress(stage);
+
+        });
+
+    </script>
 
 </body>
 </html>
