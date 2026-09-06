@@ -1,1 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Internships & Opportunities | Transfer Hub</title>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f8fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+
+    /* NAVIGATION */
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 7%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #222;
+      text-decoration: none;
+    }
+
+
+    .logo span {
+      color: #5b4bdb;
+    }
+
+
+    nav a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+      margin-left: 25px;
+    }
+
+
+    nav a:hover {
+      color: #5b4bdb;
+    }
+
+
+    /* HEADER */
+
+    .page-header {
+      text-align: center;
+
+      padding: 70px 20px 35px;
+
+      max-width: 900px;
+
+      margin: auto;
+    }
+
+
+    .page-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+
+    .page-header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+
+    /* TIP */
+
+    .opportunity-tip {
+      max-width: 1000px;
+
+      margin: 0 auto 35px;
+
+      background: #eeeaff;
+
+      border-left: 5px solid #5b4bdb;
+
+      padding: 22px 25px;
+
+      border-radius: 10px;
+    }
+
+
+    .opportunity-tip strong {
+      font-size: 1.1rem;
+    }
+
+
+    .opportunity-tip p {
+      margin-top: 5px;
+      color: #555;
+    }
+
+
+    /* FILTERS */
+
+    .filters {
+
+      max-width: 1000px;
+
+      margin: 0 auto 40px;
+
+      display: grid;
+
+      grid-template-columns: 2fr 1fr 1fr;
+
+      gap: 15px;
+    }
+
+
+    .filters input,
+    .filters select {
+
+      padding: 14px;
+
+      border: 1px solid #d8d8df;
+
+      border-radius: 8px;
+
+      background: white;
+
+      font-size: 1rem;
+    }
+
+
+    .filters input:focus,
+    .filters select:focus {
+
+      outline: 2px solid #5b4bdb;
+    }
+
+
+    /* CARDS */
+
+    .opportunity-container {
+
+      max-width: 1000px;
+
+      margin: auto;
+
+      padding: 0 20px 70px;
+    }
+
+
+    .opportunity-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 22px;
+    }
+
+
+    .opportunity-card {
+
+      background: white;
+
+      border: 1px solid #e5e5ea;
+
+      border-radius: 12px;
+
+      padding: 25px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .opportunity-card:hover {
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+    }
+
+
+    .tag {
+
+      display: inline-block;
+
+      background: #f0efff;
+
+      color: #5142c5;
+
+      padding: 5px 10px;
+
+      border-radius: 20px;
+
+      font-size: 0.8rem;
+
+      font-weight: bold;
+
+      margin-bottom: 15px;
+    }
+
+
+    .opportunity-card h2 {
+
+      font-size: 1.25rem;
+
+      margin-bottom: 5px;
+    }
+
+
+    .organization {
+
+      color: #666;
+
+      font-weight: 600;
+
+      margin-bottom: 15px;
+    }
+
+
+    .details {
+
+      margin: 12px 0;
+    }
+
+
+    .details p {
+
+      margin: 7px 0;
+
+      font-size: 0.95rem;
+    }
+
+
+    .description {
+
+      color: #666;
+
+      margin: 15px 0;
+    }
+
+
+    .gain-box {
+
+      background: #f7f7fb;
+
+      border-radius: 8px;
+
+      padding: 12px;
+
+      margin: 15px 0;
+    }
+
+
+    .gain-box strong {
+
+      display: block;
+
+      margin-bottom: 3px;
+    }
+
+
+    .start-box {
+
+      background: #f7f7fb;
+
+      border-radius: 8px;
+
+      padding: 12px;
+
+      margin: 15px 0;
+    }
+
+
+    .start-box strong {
+
+      display: block;
+
+      margin-bottom: 3px;
+    }
+
+
+    .apply-button {
+
+      display: inline-block;
+
+      background: #5b4bdb;
+
+      color: white;
+
+      text-decoration: none;
+
+      padding: 11px 18px;
+
+      border-radius: 7px;
+
+      font-weight: bold;
+
+      margin-top: 5px;
+    }
+
+
+    .apply-button:hover {
+
+      background: #4536bd;
+    }
+
+
+    /* NO RESULTS */
+
+    #noResults {
+
+      display: none;
+
+      text-align: center;
+
+      padding: 50px;
+
+      color: #666;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+
+      background: white;
+
+      border-top: 1px solid #e5e7eb;
+
+      text-align: center;
+
+      padding: 30px 20px;
+
+      color: #777;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
+
+      .filters {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .opportunity-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .page-header h1 {
+
+        font-size: 2.2rem;
+      }
+
+
+      nav {
+
+        padding: 15px 5%;
+      }
+
+
+      nav a {
+
+        margin-left: 10px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a
+      href="index.html"
+      class="logo">
+
+      Transfer<span>Hub</span>
+
+    </a>
+
+
+    <div>
+
+      <a href="index.html">
+        Roadmap
+      </a>
+
+      <a href="scholarships.html">
+        Scholarships
+      </a>
+
+      <a href="opportunities.html">
+        Opportunities
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HEADER -->
+
+  <section class="page-header">
+
+    <h1>
+      💼 Internships & Opportunities
+    </h1>
+
+
+    <p>
+
+      Find internships, research opportunities,
+      student jobs, and experiences that can help
+      you build your resume and prepare for transfer.
+
+    </p>
+
+  </section>
+
+
+  <!-- TIP -->
+
+  <div class="opportunity-tip">
+
+    <strong>
+      💡 You don't need to wait until your final year.
+    </strong>
+
+
+    <p>
+
+      Start exploring opportunities early.
+      Some experiences have deadlines months in advance,
+      while others are available year-round.
+
+    </p>
+
+  </div>
+
+
+  <!-- FILTERS -->
+
+  <div class="filters">
+
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="🔍 Search opportunities..."
+    >
+
+
+    <select id="typeFilter">
+
+      <option value="All">
+        All Types
+      </option>
+
+      <option value="Internship">
+        Internships
+      </option>
+
+      <option value="Research">
+        Research
+      </option>
+
+      <option value="Student Job / Research">
+        Student Jobs
+      </option>
+
+      <option value="Internship / Volunteer">
+        Volunteer / Internship
+      </option>
+
+      <option value="Internship / Education">
+        Education
+      </option>
+
+    </select>
+
+
+    <select id="startFilter">
+
+      <option value="All">
+        When should I start?
+      </option>
+
+      <option value="Start exploring">
+        🌱 Start exploring
+      </option>
+
+      <option value="Start preparing">
+        📝 Start preparing
+      </option>
+
+      <option value="Apply now">
+        🚨 Apply now
+      </option>
+
+      <option value="Transfer year">
+        🎓 Transfer year
+      </option>
+
+    </select>
+
+
+  </div>
+
+
+  <!-- OPPORTUNITIES -->
+
+  <main class="opportunity-container">
+
+    <div
+      id="opportunityGrid"
+      class="opportunity-grid">
+    </div>
+
+
+    <div id="noResults">
+
+      <h2>
+        No opportunities found
+      </h2>
+
+
+      <p>
+        Try changing your search or filters.
+      </p>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      Transfer Hub • A student resource for Madison College transfer students
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="opportunities.js"></script>
+
+
+  <script>
+
+    const grid =
+      document.getElementById("opportunityGrid");
+
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+
+    const typeFilter =
+      document.getElementById("typeFilter");
+
+
+    const startFilter =
+      document.getElementById("startFilter");
+
+
+    const noResults =
+      document.getElementById("noResults");
+
+
+    function displayOpportunities() {
+
+
+      const searchTerm =
+        searchInput.value.toLowerCase();
+
+
+      const selectedType =
+        typeFilter.value;
+
+
+      const selectedStart =
+        startFilter.value;
+
+
+      const filteredOpportunities =
+        opportunities.filter(function(opportunity) {
+
+
+          const searchableText = (
+
+            opportunity.name + " " +
+
+            opportunity.organization + " " +
+
+            opportunity.type + " " +
+
+            opportunity.location + " " +
+
+            opportunity.description + " " +
+
+            opportunity.audience
+
+          ).toLowerCase();
+
+
+          const matchesSearch =
+            searchableText.includes(searchTerm);
+
+
+          const matchesType =
+            selectedType === "All" ||
+
+            opportunity.type === selectedType;
+
+
+          const matchesStart =
+            selectedStart === "All" ||
+
+            opportunity.start === selectedStart;
+
+
+          return (
+
+            matchesSearch &&
+
+            matchesType &&
+
+            matchesStart
+
+          );
+
+        });
+
+
+      grid.innerHTML = "";
+
+
+      if (
+        filteredOpportunities.length === 0
+      ) {
+
+        noResults.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      noResults.style.display =
+        "none";
+
+
+      filteredOpportunities.forEach(
+        function(opportunity) {
+
+
+          const card =
+            document.createElement("div");
+
+
+          card.className =
+            "opportunity-card";
+
+
+          card.innerHTML = `
+
+            <span class="tag">
+              ${opportunity.type}
+            </span>
+
+
+            <h2>
+              ${opportunity.name}
+            </h2>
+
+
+            <p class="organization">
+              ${opportunity.organization}
+            </p>
+
+
+            <div class="details">
+
+              <p>
+                <strong>📍 Location:</strong>
+                ${opportunity.location}
+              </p>
+
+
+              <p>
+                <strong>💰 Paid:</strong>
+                ${opportunity.paid}
+              </p>
+
+
+              <p>
+                <strong>📅 Deadline:</strong>
+                ${opportunity.deadline}
+              </p>
+
+
+              <p>
+                <strong>👤 Who it's for:</strong>
+                ${opportunity.audience}
+              </p>
+
+            </div>
+
+
+            <div class="start-box">
+
+              <strong>
+                ⏰ When should I start?
+              </strong>
+
+              ${opportunity.start}
+
+            </div>
+
+
+            <p class="description">
+              ${opportunity.description}
+            </p>
+
+
+            <div class="gain-box">
+
+              <strong>
+                ⭐ What you'll gain
+              </strong>
+
+              ${opportunity.gain}
+
+            </div>
+
+
+            <a
+              class="apply-button"
+              href="${opportunity.link}"
+              target="_blank"
+              rel="noopener noreferrer">
+
+              View Opportunity →
+
+            </a>
+
+          `;
+
+
+          grid.appendChild(card);
+
+        }
+
+      );
+
+    }
+
+
+    searchInput.addEventListener(
+      "input",
+      displayOpportunities
+    );
+
+
+    typeFilter.addEventListener(
+      "change",
+      displayOpportunities
+    );
+
+
+    startFilter.addEventListener(
+      "change",
+      displayOpportunities
+    );
+
+
+    displayOpportunities();
+
+  </script>
+
+
+</body>
+
+</html>
