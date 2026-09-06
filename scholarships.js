@@ -1,37 +1,113 @@
 const scholarships = [
-    {
-        name: "Scholarship Name Coming Soon",
-        amount: "$—",
-        deadline: "Deadline coming soon",
-        category: "Transfer",
-        eligibility: "Transfer students",
-        gpa: "Varies",
-        description:
-            "Verified scholarship opportunities for students preparing to transfer.",
-        link: "#"
-    },
+  {
+    name: "Madison College Foundation Scholarships",
+    amount: "Varies",
+    deadline: "Twice yearly",
+    category: "Madison College",
+    eligibility: "Current Madison College students",
+    gpa: "2.0+",
+    start: "Start preparing",
+    materials: "Recommendation letter, transcript",
+    description:
+      "A pool of scholarships specifically for Madison College students. One application can make you eligible for multiple Foundation scholarships.",
+    link: "https://madisoncollege.academicworks.com/"
+  },
 
-    {
-        name: "Madison College Scholarship Resources",
-        amount: "Varies",
-        deadline: "Varies",
-        category: "Madison College",
-        eligibility: "Madison College students",
-        gpa: "Varies",
-        description:
-            "Explore scholarship opportunities available to Madison College students.",
-        link: "#"
-    },
+  {
+    name: "Christopher Calhoun Transfer Scholarship",
+    amount: "Varies",
+    deadline: "December 1, 2026",
+    category: "Transfer",
+    eligibility: "PTK members transferring to a four-year institution",
+    gpa: "See scholarship requirements",
+    start: "Start preparing",
+    materials: "PTK scholarship application, academic information, transfer plans",
+    description:
+      "A competitive PTK scholarship designed for community college students transferring to a four-year institution.",
+    link: "https://www.ptk.org/scholarships/apply-now/"
+  },
 
-    {
-        name: "Wisconsin Transfer Scholarships",
-        amount: "Varies",
-        deadline: "Varies",
-        category: "Wisconsin",
-        eligibility: "Students transferring to eligible Wisconsin institutions",
-        gpa: "Varies",
-        description:
-            "Scholarship opportunities relevant to students transferring within Wisconsin.",
-        link: "#"
-    }
+  {
+    name: "Hites Transfer Scholarship",
+    amount: "Varies",
+    deadline: "December 1, 2026",
+    category: "Transfer",
+    eligibility: "Eligible PTK members who are transferring",
+    gpa: "See scholarship requirements",
+    start: "Start preparing",
+    materials: "PTK scholarship application and supporting materials",
+    description:
+      "A competitive Phi Theta Kappa transfer scholarship for community college students.",
+    link: "https://www.ptk.org/scholarships/apply-now/"
+  },
+
+  {
+    name: "New Century Transfer & Workforce Pathway Scholarships",
+    amount: "Varies",
+    deadline: "December 1, 2026",
+    category: "Transfer",
+    eligibility: "Eligible PTK students",
+    gpa: "See scholarship requirements",
+    start: "Start preparing",
+    materials: "PTK scholarship application and supporting materials",
+    description:
+      "PTK scholarships recognizing community college students pursuing transfer and workforce pathways.",
+    link: "https://www.ptk.org/scholarships/apply-now/"
+  },
+
+  {
+    name: "Chime Workforce Scholarship",
+    amount: "Varies",
+    deadline: "May 17, 2027",
+    category: "Transfer",
+    eligibility: "Eligible PTK students",
+    gpa: "See scholarship requirements",
+    start: "Start exploring",
+    materials: "PTK scholarship application and supporting materials",
+    description:
+      "A PTK scholarship opportunity for students pursuing workforce and career pathways.",
+    link: "https://www.ptk.org/scholarships/apply-now/"
+  },
+
+  {
+    name: "Coca-Cola Leaders of Promise",
+    amount: "Varies",
+    deadline: "May 17, 2027",
+    category: "Transfer",
+    eligibility: "Eligible PTK members",
+    gpa: "See scholarship requirements",
+    start: "Start exploring",
+    materials: "PTK scholarship application and supporting materials",
+    description:
+      "A competitive PTK scholarship recognizing emerging community college leaders.",
+    link: "https://www.ptk.org/scholarships/apply-now/"
+  },
+
+  {
+    name: "Oberndorf Lifeline to Completion Scholarship",
+    amount: "Varies",
+    deadline: "Rolling",
+    category: "Transfer",
+    eligibility: "Eligible PTK students with financial need",
+    gpa: "See scholarship requirements",
+    start: "Apply now",
+    materials: "PTK scholarship application and supporting materials",
+    description:
+      "A need-based PTK scholarship with applications reviewed quarterly.",
+    link: "https://www.ptk.org/scholarships/apply-now/"
+  },
+
+  {
+    name: "Bower-Delta State University Transfer Nursing Scholarship",
+    amount: "Varies",
+    deadline: "May 1, 2027",
+    category: "Transfer",
+    eligibility: "Eligible nursing students",
+    gpa: "See scholarship requirements",
+    start: "Start preparing",
+    materials: "Scholarship application and supporting materials",
+    description:
+      "A PTK nursing transfer scholarship opportunity for eligible students.",
+    link: "https://www.ptk.org/scholarships/apply-now/"
+  }
 ];
