@@ -1,601 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Scholarships | Transfer Hub</title>
-
-    <meta
-        name="description"
-        content="Scholarship opportunities for Madison College transfer students."
-    >
-
-    <style>
-
-        :root {
-            --navy: #17324d;
-            --teal: #287c78;
-            --gold: #e5b84b;
-            --cream: #f7f5ef;
-            --white: #ffffff;
-            --text: #24313d;
-            --muted: #63717d;
-            --border: #dfe5e8;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--text);
-            background: var(--white);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* NAV */
-
-        .navbar {
-            border-bottom: 1px solid var(--border);
-            background: var(--white);
-        }
-
-        .nav-container {
-            max-width: 1180px;
-            margin: auto;
-            padding: 16px 24px;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--navy);
-        }
-
-        .logo span {
-            color: var(--teal);
-        }
-
-        .back-link {
-            color: var(--teal);
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        /* HERO */
-
-        .hero {
-            background: var(--cream);
-            padding: 70px 24px;
-            text-align: center;
-        }
-
-        .hero-container {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.3rem, 5vw, 4rem);
-            color: var(--navy);
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            color: var(--muted);
-            font-size: 1.1rem;
-        }
-
-        /* MAIN */
-
-        .main {
-            max-width: 1180px;
-            margin: auto;
-            padding: 55px 24px 80px;
-        }
-
-        /* SEARCH */
-
-        .search-container {
-            margin-bottom: 35px;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 16px 18px;
-
-            border: 1px solid var(--border);
-            border-radius: 10px;
-
-            font-size: 1rem;
-        }
-
-        .search-container input:focus {
-            outline: 2px solid var(--teal);
-            border-color: transparent;
-        }
-
-        /* FILTERS */
-
-        .filters {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 35px;
-        }
-
-        .filter-button {
-            border: 1px solid var(--border);
-            background: var(--white);
-            color: var(--navy);
-
-            padding: 9px 15px;
-
-            border-radius: 20px;
-
-            cursor: pointer;
-
-            font-weight: 700;
-        }
-
-        .filter-button:hover,
-        .filter-button.active {
-            background: var(--teal);
-            color: var(--white);
-            border-color: var(--teal);
-        }
-
-        /* RESULTS */
-
-        .results-info {
-            color: var(--muted);
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
-
-        .scholarship-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .scholarship-card {
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 25px;
-
-            display: flex;
-            flex-direction: column;
-
-            background: var(--white);
-        }
-
-        .scholarship-card h2 {
-            font-size: 1.25rem;
-            color: var(--navy);
-            margin-bottom: 15px;
-        }
-
-        .amount {
-            color: var(--teal);
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .deadline {
-            font-size: 0.9rem;
-            color: var(--muted);
-            margin-bottom: 15px;
-        }
-
-        .description {
-            font-size: 0.93rem;
-            color: var(--muted);
-            margin-bottom: 18px;
-        }
-
-        .details {
-            display: grid;
-            gap: 6px;
-            margin-bottom: 20px;
-
-            font-size: 0.88rem;
-        }
-
-        .details strong {
-            color: var(--navy);
-        }
-
-        .apply-button {
-            margin-top: auto;
-
-            display: block;
-            text-align: center;
-
-            padding: 11px;
-
-            background: var(--navy);
-            color: var(--white);
-
-            border-radius: 8px;
-
-            font-weight: 700;
-        }
-
-        .apply-button:hover {
-            background: var(--teal);
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--muted);
-            display: none;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: var(--navy);
-            color: var(--white);
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        footer p {
-            color: #d9e3ea;
-            font-size: 0.9rem;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 900px) {
-
-            .scholarship-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-        @media (max-width: 600px) {
-
-            .scholarship-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Scholarship Database | Transfer Hub</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f8fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #222;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #5b4bdb;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+      margin-left: 25px;
+    }
+
+    nav a:hover {
+      color: #5b4bdb;
+    }
+
+    /* HEADER */
+    .page-header {
+      text-align: center;
+      padding: 70px 20px 35px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .page-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    .page-header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    /* TIP */
+    .scholarship-tip {
+      max-width: 1000px;
+      margin: 0 auto 35px;
+      background: #eeeaff;
+      border-left: 5px solid #5b4bdb;
+      padding: 22px 25px;
+      border-radius: 10px;
+    }
+
+    .scholarship-tip strong {
+      font-size: 1.1rem;
+    }
+
+    .scholarship-tip p {
+      margin-top: 5px;
+      color: #555;
+    }
+
+    /* FILTERS */
+    .filters {
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 15px;
+    }
+
+    .filters input,
+    .filters select {
+      padding: 14px;
+      border: 1px solid #d8d8df;
+      border-radius: 8px;
+      background: white;
+      font-size: 1rem;
+    }
+
+    .filters input:focus,
+    .filters select:focus {
+      outline: 2px solid #5b4bdb;
+    }
+
+    /* SCHOLARSHIPS */
+    .scholarship-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 20px 70px;
+    }
+
+    .scholarship-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .scholarship-card {
+      background: white;
+      border: 1px solid #e5e5ea;
+      border-radius: 12px;
+      padding: 25px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .scholarship-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .scholarship-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f0efff;
+      color: #5142c5;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .details {
+      margin: 12px 0;
+    }
+
+    .details p {
+      margin: 7px 0;
+      font-size: 0.95rem;
+    }
+
+    .details strong {
+      color: #333;
+    }
+
+    .description {
+      color: #666;
+      margin: 15px 0 20px;
+    }
+
+    .start-box {
+      background: #f7f7fb;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 15px 0;
+    }
+
+    .start-box strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .apply-button {
+      display: inline-block;
+      background: #5b4bdb;
+      color: white;
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 7px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .apply-button:hover {
+      background: #4536bd;
+    }
+
+    /* NO RESULTS */
+    #noResults {
+      display: none;
+      text-align: center;
+      padding: 50px;
+      color: #666;
+    }
+
+    /* FOOTER */
+    footer {
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+    }
+
+    /* MOBILE */
+    @media (max-width: 750px) {
+      .filters {
+        grid-template-columns: 1fr;
+      }
+
+      .scholarship-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav a {
+        margin-left: 10px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-    <!-- NAVIGATION -->
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="logo">
+      Transfer<span>Hub</span>
+    </a>
 
-    <header class="navbar">
+    <div>
+      <a href="index.html">Roadmap</a>
+      <a href="scholarships.html">Scholarships</a>
+    </div>
+  </nav>
 
-        <div class="nav-container">
 
-            <a href="index.html" class="logo">
-                Transfer<span>Hub</span>
-            </a>
+  <!-- HEADER -->
+  <section class="page-header">
+    <h1>🎓 Scholarship Database</h1>
 
-            <a href="index.html" class="back-link">
-                ← Back to Transfer Hub
-            </a>
+    <p>
+      Find scholarships that can help make your transfer more affordable.
+      Start early, keep track of deadlines, and build your application materials.
+    </p>
+  </section>
 
-        </div>
 
-    </header>
+  <!-- STUDENT TIP -->
+  <div class="scholarship-tip">
 
+    <strong>💡 New to scholarships?</strong>
 
-    <!-- HERO -->
+    <p>
+      You don't have to wait until you're ready to transfer.
+      Start exploring opportunities early, save scholarships that interest you,
+      and learn what materials you'll need before deadlines arrive.
+    </p>
 
-    <section class="hero">
+  </div>
 
-        <div class="hero-container">
 
-            <h1>Scholarship Database</h1>
+  <!-- FILTERS -->
+  <div class="filters">
 
-            <p>
-                Find scholarship opportunities and discover when
-                you should start searching and applying.
-            </p>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="🔍 Search scholarships..."
+    >
 
-        </div>
+    <select id="categoryFilter">
 
-    </section>
+      <option value="All">
+        All Categories
+      </option>
 
+      <option value="Transfer">
+        Transfer
+      </option>
 
-    <!-- DATABASE -->
+      <option value="Madison College">
+        Madison College
+      </option>
 
-    <main class="main">
+      <option value="Wisconsin">
+        Wisconsin
+      </option>
 
-        <div class="search-container">
+    </select>
 
-            <input
-                type="search"
-                id="search"
-                placeholder="Search scholarships..."
-                aria-label="Search scholarships"
-            >
 
-        </div>
+    <select id="startFilter">
 
+      <option value="All">
+        When should I start?
+      </option>
 
-        <div class="filters">
+      <option value="Start exploring">
+        🌱 Start exploring
+      </option>
 
-            <button
-                class="filter-button active"
-                data-filter="All"
-            >
-                All
-            </button>
+      <option value="Start preparing">
+        📝 Start preparing
+      </option>
 
-            <button
-                class="filter-button"
-                data-filter="Transfer"
-            >
-                Transfer
-            </button>
+      <option value="Apply now">
+        🚨 Apply now
+      </option>
 
-            <button
-                class="filter-button"
-                data-filter="Madison College"
-            >
-                Madison College
-            </button>
+      <option value="Transfer year">
+        🎓 Transfer year
+      </option>
 
-            <button
-                class="filter-button"
-                data-filter="Wisconsin"
-            >
-                Wisconsin
-            </button>
+    </select>
 
-        </div>
+  </div>
 
 
-        <div
-            class="results-info"
-            id="results-info"
-        ></div>
+  <!-- SCHOLARSHIP CARDS -->
+  <main class="scholarship-container">
 
+    <div
+      id="scholarshipGrid"
+      class="scholarship-grid">
+    </div>
 
-        <div
-            class="scholarship-grid"
-            id="scholarship-grid"
-        ></div>
+    <div id="noResults">
 
+      <h2>No scholarships found</h2>
 
-        <div
-            class="no-results"
-            id="no-results"
-        >
-            <h2>No scholarships found</h2>
+      <p>
+        Try changing your search or filters.
+      </p>
 
-            <p>
-                Try another search or remove your filters.
-            </p>
+    </div>
 
-        </div>
+  </main>
 
-    </main>
 
+  <!-- FOOTER -->
+  <footer>
 
-    <footer>
+    <p>
+      Transfer Hub • A student resource for Madison College transfer students
+    </p>
 
-        <p>
-            <strong>Transfer Hub</strong> — Your roadmap to what's next.
-        </p>
+  </footer>
 
-        <p>
-            Scholarship information should always be verified
-            through the official scholarship provider.
-        </p>
 
-    </footer>
+  <!-- JAVASCRIPT -->
+  <script src="scholarships.js"></script>
 
+  <script>
 
-    <script src="scholarships.js"></script>
+    const grid = document.getElementById("scholarshipGrid");
 
+    const searchInput = document.getElementById("searchInput");
 
-    <script>
+    const categoryFilter =
+      document.getElementById("categoryFilter");
 
-        const grid =
-            document.getElementById("scholarship-grid");
+    const startFilter =
+      document.getElementById("startFilter");
 
-        const search =
-            document.getElementById("search");
+    const noResults =
+      document.getElementById("noResults");
 
-        const resultsInfo =
-            document.getElementById("results-info");
 
-        const noResults =
-            document.getElementById("no-results");
+    function displayScholarships() {
 
-        const filterButtons =
-            document.querySelectorAll(".filter-button");
+      const searchTerm =
+        searchInput.value.toLowerCase();
 
-        let activeFilter = "All";
+      const selectedCategory =
+        categoryFilter.value;
 
+      const selectedStart =
+        startFilter.value;
 
-        function displayScholarships() {
 
-            const searchTerm =
-                search.value.toLowerCase().trim();
+      const filteredScholarships =
+        scholarships.filter(function(scholarship) {
 
+          const matchesSearch =
+            scholarship.name.toLowerCase().includes(searchTerm) ||
+            scholarship.description.toLowerCase().includes(searchTerm) ||
+            scholarship.eligibility.toLowerCase().includes(searchTerm);
 
-            const filtered =
-                scholarships.filter(function(scholarship) {
+          const matchesCategory =
+            selectedCategory === "All" ||
+            scholarship.category === selectedCategory;
 
-                    const matchesSearch =
-                        scholarship.name
-                            .toLowerCase()
-                            .includes(searchTerm) ||
+          const matchesStart =
+            selectedStart === "All" ||
+            scholarship.start === selectedStart;
 
-                        scholarship.description
-                            .toLowerCase()
-                            .includes(searchTerm) ||
-
-                        scholarship.eligibility
-                            .toLowerCase()
-                            .includes(searchTerm);
-
-
-                    const matchesFilter =
-                        activeFilter === "All" ||
-                        scholarship.category === activeFilter;
-
-
-                    return matchesSearch && matchesFilter;
-
-                });
-
-
-            grid.innerHTML = "";
-
-
-            resultsInfo.textContent =
-                filtered.length +
-                (filtered.length === 1
-                    ? " opportunity"
-                    : " opportunities");
-
-
-            if (filtered.length === 0) {
-
-                noResults.style.display = "block";
-
-                return;
-
-            }
-
-
-            noResults.style.display = "none";
-
-
-            filtered.forEach(function(scholarship) {
-
-                const card =
-                    document.createElement("article");
-
-                card.className =
-                    "scholarship-card";
-
-
-                card.innerHTML = `
-
-                    <h2>
-                        ${scholarship.name}
-                    </h2>
-
-                    <div class="amount">
-                        ${scholarship.amount}
-                    </div>
-
-                    <div class="deadline">
-                        <strong>Deadline:</strong>
-                        ${scholarship.deadline}
-                    </div>
-
-                    <p class="description">
-                        ${scholarship.description}
-                    </p>
-
-                    <div class="details">
-
-                        <div>
-                            <strong>Eligibility:</strong>
-                            ${scholarship.eligibility}
-                        </div>
-
-                        <div>
-                            <strong>GPA:</strong>
-                            ${scholarship.gpa}
-                        </div>
-
-                    </div>
-
-                    <a
-                        href="${scholarship.link}"
-                        class="apply-button"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View Opportunity →
-                    </a>
-
-                `;
-
-
-                grid.appendChild(card);
-
-            });
-
-        }
-
-
-        search.addEventListener(
-            "input",
-            displayScholarships
-        );
-
-
-        filterButtons.forEach(function(button) {
-
-            button.addEventListener(
-                "click",
-                function() {
-
-                    filterButtons.forEach(function(btn) {
-
-                        btn.classList.remove("active");
-
-                    });
-
-
-                    button.classList.add("active");
-
-
-                    activeFilter =
-                        button.dataset.filter;
-
-
-                    displayScholarships();
-
-                }
-            );
+          return (
+            matchesSearch &&
+            matchesCategory &&
+            matchesStart
+          );
 
         });
 
 
-        displayScholarships();
+      grid.innerHTML = "";
 
-    </script>
+
+      if (filteredScholarships.length === 0) {
+
+        noResults.style.display = "block";
+
+        return;
+
+      }
+
+
+      noResults.style.display = "none";
+
+
+      filteredScholarships.forEach(function(scholarship) {
+
+        const card =
+          document.createElement("div");
+
+        card.className = "scholarship-card";
+
+
+        card.innerHTML = `
+
+          <span class="tag">
+            ${scholarship.category}
+          </span>
+
+          <h2>
+            ${scholarship.name}
+          </h2>
+
+          <div class="details">
+
+            <p>
+              <strong>💰 Award:</strong>
+              ${scholarship.amount}
+            </p>
+
+            <p>
+              <strong>📅 Deadline:</strong>
+              ${scholarship.deadline}
+            </p>
+
+            <p>
+              <strong>🎓 GPA:</strong>
+              ${scholarship.gpa}
+            </p>
+
+            <p>
+              <strong>👤 Who it's for:</strong>
+              ${scholarship.eligibility}
+            </p>
+
+          </div>
+
+
+          <div class="start-box">
+
+            <strong>
+              ⏰ When should I start?
+            </strong>
+
+            ${scholarship.start}
+
+          </div>
+
+
+          <p class="description">
+            ${scholarship.description}
+          </p>
+
+
+          <p>
+            <strong>📋 What you'll need:</strong>
+            ${scholarship.materials}
+          </p>
+
+
+          <a
+            class="apply-button"
+            href="${scholarship.link}"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            View Opportunity →
+
+          </a>
+
+        `;
+
+
+        grid.appendChild(card);
+
+      });
+
+    }
+
+
+    searchInput.addEventListener(
+      "input",
+      displayScholarships
+    );
+
+    categoryFilter.addEventListener(
+      "change",
+      displayScholarships
+    );
+
+    startFilter.addEventListener(
+      "change",
+      displayScholarships
+    );
+
+
+    displayScholarships();
+
+  </script>
 
 </body>
-
 </html>
