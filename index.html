@@ -7,6 +7,11 @@
   <title>Transfer Hub | Madison College</title>
 
   <style>
+
+    /* =========================
+       GENERAL
+    ========================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,8 +25,8 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
-      color: #222;
-      background: #f7f8fa;
+      color: #24313d;
+      background: #f7f5ef;
     }
 
     a {
@@ -29,22 +34,36 @@
       text-decoration: none;
     }
 
-    /* NAVIGATION */
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: #ffffff;
-      border-bottom: 1px solid #ddd;
-      padding: 15px 5%;
+      border-bottom: 1px solid #dfe5e8;
+    }
+
+    .nav-container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 16px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #17324d;
+    }
+
+    .logo span {
+      color: #287c78;
     }
 
     .nav-links {
@@ -54,64 +73,119 @@
     }
 
     .nav-links a {
+      color: #24313d;
       font-weight: 600;
+      transition: 0.2s;
     }
 
     .nav-links a:hover {
-      text-decoration: underline;
+      color: #287c78;
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
-      background: #ffffff;
+      background: #f7f5ef;
       text-align: center;
-      padding: 75px 20px;
-      border-bottom: 1px solid #ddd;
+      padding: 90px 25px 85px;
+    }
+
+    .hero-label {
+      color: #287c78;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
+      max-width: 850px;
+      margin: auto;
+      color: #17324d;
+      font-size: 3.5rem;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #287c78;
     }
 
     .hero p {
       max-width: 700px;
-      margin: 0 auto 25px;
+      margin: 0 auto 30px;
+      color: #63717d;
       font-size: 1.1rem;
-      color: #555;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     .hero-button {
       display: inline-block;
-      padding: 12px 22px;
-      background: #222;
+      padding: 13px 23px;
+      background: #17324d;
       color: white;
-      border-radius: 6px;
-      font-weight: bold;
+      border-radius: 7px;
+      font-weight: 700;
+      transition: 0.2s;
     }
 
     .hero-button:hover {
-      opacity: 0.85;
+      background: #287c78;
     }
 
-    /* GENERAL SECTIONS */
+    .hero-button.secondary {
+      background: white;
+      color: #17324d;
+      border: 2px solid #17324d;
+    }
+
+    .hero-button.secondary:hover {
+      background: #17324d;
+      color: white;
+    }
+
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
     section {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 70px 25px;
     }
 
     section h2 {
-      font-size: 2rem;
-      margin-bottom: 12px;
+      color: #17324d;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
     }
 
     .section-intro {
-      color: #666;
+      color: #63717d;
+      max-width: 700px;
       margin-bottom: 30px;
     }
 
-    /* ROADMAP */
+
+    /* =========================
+       ROADMAP
+    ========================= */
+
+    #roadmap {
+      background: white;
+    }
+
     .roadmap {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -121,33 +195,48 @@
 
     .roadmap-card {
       background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+      border: 1px solid #dfe5e8;
+      border-radius: 14px;
       padding: 25px;
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.25s;
+      border-top: 5px solid #287c78;
     }
 
     .roadmap-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(23, 50, 77, 0.10);
+    }
+
+    .roadmap-number {
+      color: #e5b84b;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
     }
 
     .roadmap-card h3 {
-      margin-bottom: 8px;
+      color: #17324d;
+      margin-bottom: 5px;
     }
 
     .roadmap-card p {
-      color: #666;
+      color: #63717d;
       font-size: 0.95rem;
     }
 
-    /* STAGES */
+
+    /* =========================
+       STAGES
+    ========================= */
+
     .stage {
       display: none;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+      background: #f7f5ef;
+      border: 1px solid #dfe5e8;
+      border-radius: 14px;
       padding: 30px;
       margin-top: 30px;
     }
@@ -161,15 +250,20 @@
     }
 
     .stage-header h3 {
-      font-size: 1.6rem;
+      color: #17324d;
+      font-size: 1.7rem;
       margin-bottom: 5px;
     }
 
     .stage-header p {
-      color: #666;
+      color: #63717d;
     }
 
-    /* PROGRESS */
+
+    /* =========================
+       PROGRESS
+    ========================= */
+
     .progress-container {
       margin: 20px 0 30px;
     }
@@ -178,13 +272,14 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 7px;
+      color: #17324d;
       font-weight: bold;
     }
 
     .progress-bar {
       width: 100%;
       height: 12px;
-      background: #e5e5e5;
+      background: #dfe5e8;
       border-radius: 20px;
       overflow: hidden;
     }
@@ -192,11 +287,15 @@
     .progress-fill {
       height: 100%;
       width: 0%;
-      background: #222;
+      background: #287c78;
       transition: width 0.3s ease;
     }
 
-    /* CHECKLIST */
+
+    /* =========================
+       CHECKLIST
+    ========================= */
+
     .checklist {
       list-style: none;
     }
@@ -206,229 +305,136 @@
       align-items: flex-start;
       gap: 12px;
       padding: 13px 0;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #dfe5e8;
     }
 
     .checklist input {
       margin-top: 5px;
       width: 18px;
       height: 18px;
+      accent-color: #287c78;
       cursor: pointer;
     }
 
     .checklist label {
+      color: #24313d;
       cursor: pointer;
     }
 
     .checklist input:checked + label {
       text-decoration: line-through;
-      color: #888;
+      color: #63717d;
     }
-<!-- SCHOLARSHIP DATABASE -->
-<section id="scholarships">
-
-  <h2>Scholarship Database</h2>
-
-  <p class="section-intro">
-    Find scholarships and funding opportunities that may help support
-    your education and transfer journey.
-  </p>
-
-  <div class="scholarship-controls">
-
-    <input
-      type="text"
-      id="scholarshipSearch"
-      placeholder="Search scholarships..."
-      onkeyup="filterScholarships()"
-    >
-
-    <select id="scholarshipCategory" onchange="filterScholarships()">
-      <option value="all">All Categories</option>
-      <option value="madison-college">Madison College</option>
-      <option value="transfer">Transfer</option>
-      <option value="academic">Academic</option>
-      <option value="leadership">Leadership</option>
-      <option value="community">Community Service</option>
-    </select>
-
-  </div>
 
 
-  <div class="scholarship-list" id="scholarshipList">
+    /* =========================
+       SCHOLARSHIP DATABASE
+    ========================= */
+
+    #scholarships {
+      background: #f7f5ef;
+    }
+
+    .scholarship-controls {
+      display: flex;
+      gap: 15px;
+      margin: 25px 0 30px;
+      flex-wrap: wrap;
+    }
+
+    .scholarship-controls input,
+    .scholarship-controls select {
+      padding: 13px 15px;
+      border: 1px solid #dfe5e8;
+      border-radius: 7px;
+      font-size: 1rem;
+      background: white;
+      color: #24313d;
+    }
+
+    .scholarship-controls input {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .scholarship-controls select {
+      min-width: 210px;
+    }
+
+    .scholarship-controls input:focus,
+    .scholarship-controls select:focus {
+      outline: 2px solid #287c78;
+      outline-offset: 1px;
+    }
+
+    .scholarship-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .scholarship-card {
+      background: white;
+      border: 1px solid #dfe5e8;
+      border-radius: 14px;
+      padding: 27px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      transition: 0.2s;
+    }
+
+    .scholarship-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px rgba(23, 50, 77, 0.09);
+    }
+
+    .scholarship-info {
+      flex: 1;
+    }
+
+    .scholarship-info h3 {
+      color: #17324d;
+      margin-bottom: 7px;
+    }
+
+    .scholarship-info p {
+      color: #63717d;
+      margin-bottom: 14px;
+    }
+
+    .scholarship-details {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #24313d;
+    }
+
+    .scholarship-button {
+      background: #287c78;
+      color: white;
+      padding: 11px 17px;
+      border-radius: 7px;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .scholarship-button:hover {
+      background: #17324d;
+    }
 
 
-    <!-- MADISON COLLEGE FOUNDATION SCHOLARSHIPS -->
-    <div
-      class="scholarship-card"
-      data-category="madison-college"
-      data-search="Madison College Foundation scholarships Madison College students"
-    >
+    /* =========================
+       RESOURCES
+    ========================= */
 
-      <div class="scholarship-info">
+    #resources {
+      background: white;
+    }
 
-        <h3>Madison College Foundation Scholarships</h3>
-
-        <p>
-          Scholarships specifically for Madison College students.
-          Students use one application to be considered for multiple Foundation scholarships.
-        </p>
-
-        <div class="scholarship-details">
-          <span>🎓 Madison College</span>
-          <span>💰 Varies</span>
-          <span>📅 Twice yearly</span>
-        </div>
-
-      </div>
-
-      <a
-        href="https://madisoncollege.academicworks.com/"
-        target="_blank"
-        class="scholarship-button"
-      >
-        Apply / Learn More →
-      </a>
-
-    </div>
-
-
-    <!-- JACK KENT COOKE UNDERGRADUATE TRANSFER SCHOLARSHIP -->
-    <div
-      class="scholarship-card"
-      data-category="transfer"
-      data-search="Jack Kent Cooke Undergraduate Transfer Scholarship community college transfer"
-    >
-
-      <div class="scholarship-info">
-
-        <h3>Jack Kent Cooke Undergraduate Transfer Scholarship</h3>
-
-        <p>
-          A national scholarship for high-achieving community college students
-          planning to transfer to a four-year institution.
-        </p>
-
-        <div class="scholarship-details">
-          <span>🎓 Community College Transfer</span>
-          <span>💰 Up to $55,000/year</span>
-          <span>📅 December 9, 2026</span>
-        </div>
-
-      </div>
-
-      <a
-        href="https://www.jkcf.org/our-scholarships/undergraduate-transfer-scholarship/"
-        target="_blank"
-        class="scholarship-button"
-      >
-        View Scholarship →
-      </a>
-
-    </div>
-
-
-  </div>
-
-</section>
-    /* SCHOLARSHIP DATABASE */
-
-.scholarship-controls {
-  display: flex;
-  gap: 15px;
-  margin: 25px 0;
-  flex-wrap: wrap;
-}
-
-.scholarship-controls input,
-.scholarship-controls select {
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  background: white;
-}
-
-.scholarship-controls input {
-  flex: 1;
-  min-width: 250px;
-}
-
-.scholarship-controls select {
-  min-width: 200px;
-}
-
-.scholarship-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.scholarship-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-  transition: 0.2s;
-}
-
-.scholarship-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.scholarship-info {
-  flex: 1;
-}
-
-.scholarship-info h3 {
-  margin-bottom: 7px;
-}
-
-.scholarship-info p {
-  color: #666;
-  margin-bottom: 12px;
-}
-
-.scholarship-details {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.scholarship-button {
-  background: #222;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-.scholarship-button:hover {
-  opacity: 0.85;
-}
-
-@media (max-width: 700px) {
-
-  .scholarship-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .scholarship-button {
-    width: 100%;
-    text-align: center;
-  }
-
-}
-    /* RESOURCES */
     .resources-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -438,55 +444,95 @@
 
     .resource-card {
       background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+      border: 1px solid #dfe5e8;
+      border-radius: 14px;
       padding: 25px;
+      border-top: 4px solid #e5b84b;
     }
 
     .resource-card h3 {
+      color: #17324d;
       margin-bottom: 8px;
     }
 
     .resource-card p {
-      color: #666;
+      color: #63717d;
       margin-bottom: 15px;
     }
 
     .resource-card a {
+      color: #287c78;
       font-weight: bold;
+    }
+
+    .resource-card a:hover {
       text-decoration: underline;
     }
 
-    /* HELP */
+
+    /* =========================
+       HELP
+    ========================= */
+
+    #help {
+      background: #f7f5ef;
+    }
+
     .help-box {
       background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+      border: 1px solid #dfe5e8;
+      border-radius: 14px;
       padding: 30px;
       margin-top: 25px;
+      border-left: 5px solid #287c78;
+    }
+
+    .help-box p {
+      color: #63717d;
     }
 
     .help-box ul {
       margin: 15px 0 0 20px;
     }
 
-    /* FOOTER */
+    .help-box li {
+      margin-bottom: 7px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
-      background: #222;
+      background: #17324d;
       color: white;
       text-align: center;
-      padding: 35px 20px;
-      margin-top: 30px;
+      padding: 40px 20px;
+    }
+
+    footer strong {
+      font-size: 1.2rem;
     }
 
     footer p {
-      color: #ccc;
+      color: #dfe5e8;
       font-size: 0.9rem;
-      margin-top: 5px;
+      margin-top: 7px;
     }
 
-    /* MOBILE */
-    @media (max-width: 800px) {
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        gap: 14px;
+        font-size: 0.9rem;
+      }
+
       .roadmap {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -495,24 +541,18 @@
         grid-template-columns: 1fr;
       }
 
-      .nav-links {
-        gap: 12px;
-        font-size: 0.9rem;
+      .hero h1 {
+        font-size: 2.7rem;
       }
 
-      .hero h1 {
-        font-size: 2.3rem;
-      }
     }
 
-    @media (max-width: 550px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
 
-      .roadmap {
-        grid-template-columns: 1fr;
+    @media (max-width: 650px) {
+
+      .nav-container {
+        flex-direction: column;
+        gap: 12px;
       }
 
       .nav-links {
@@ -520,42 +560,117 @@
         justify-content: center;
       }
 
-      .hero {
-        padding: 50px 20px;
+      .roadmap {
+        grid-template-columns: 1fr;
       }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .scholarship-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .scholarship-button {
+        width: 100%;
+        text-align: center;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="logo">Transfer Hub</div>
 
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="#resources">Resources</a></li>
-      <li><a href="#help">Help</a></li>
-    </ul>
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav>
+
+    <div class="nav-container">
+
+      <div class="logo">
+        Transfer<span>Hub</span>
+      </div>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="#home">Home</a>
+        </li>
+
+        <li>
+          <a href="#roadmap">My Roadmap</a>
+        </li>
+
+        <li>
+          <a href="#scholarships">Scholarships</a>
+        </li>
+
+        <li>
+          <a href="#resources">Opportunities</a>
+        </li>
+
+        <li>
+          <a href="#help">Help</a>
+        </li>
+
+      </ul>
+
+    </div>
+
   </nav>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================= -->
+
   <header class="hero" id="home">
-    <h1>Madison College Transfer Hub</h1>
+
+    <div class="hero-label">
+      Madison College Student Resource
+    </div>
+
+    <h1>
+      Your roadmap to <span>what's next.</span>
+    </h1>
 
     <p>
-      A simple roadmap to help Madison College students explore,
-      prepare for, apply to, and successfully transfer to a four-year university.
+      A student-friendly guide to help Madison College students
+      explore their options, prepare for transfer, find opportunities,
+      and take the next step with confidence.
     </p>
 
-    <a href="#roadmap" class="hero-button">Start Your Transfer Journey</a>
+    <div class="hero-buttons">
+
+      <a href="#roadmap" class="hero-button">
+        Start Your Roadmap
+      </a>
+
+      <a href="#scholarships" class="hero-button secondary">
+        Explore Scholarships
+      </a>
+
+    </div>
+
   </header>
 
 
-  <!-- ROADMAP -->
+  <!-- =========================
+       ROADMAP
+  ========================= -->
+
   <section id="roadmap">
 
     <h2>Your Transfer Roadmap</h2>
@@ -565,59 +680,134 @@
       Choose the stage that best matches where you are right now.
     </p>
 
+
     <div class="roadmap">
 
+
       <div class="roadmap-card" onclick="showStage('first-year')">
-        <h3>1. Exploring</h3>
-        <p>First Year</p>
-        <p>Explore majors, universities, scholarships, and opportunities.</p>
+
+        <div class="roadmap-number">
+          Step 01
+        </div>
+
+        <h3>Exploring</h3>
+
+        <p>
+          First Year
+        </p>
+
+        <p>
+          Explore majors, universities, scholarships,
+          and opportunities.
+        </p>
+
       </div>
+
 
       <div class="roadmap-card" onclick="showStage('second-year')">
-        <h3>2. Preparing</h3>
-        <p>Second Year</p>
-        <p>Narrow your options and make sure you understand requirements.</p>
+
+        <div class="roadmap-number">
+          Step 02
+        </div>
+
+        <h3>Preparing</h3>
+
+        <p>
+          Second Year
+        </p>
+
+        <p>
+          Narrow down your options and understand
+          transfer requirements.
+        </p>
+
       </div>
+
 
       <div class="roadmap-card" onclick="showStage('application-year')">
-        <h3>3. Applying</h3>
-        <p>Application Year</p>
-        <p>Prepare your materials, meet deadlines, and submit applications.</p>
+
+        <div class="roadmap-number">
+          Step 03
+        </div>
+
+        <h3>Applying</h3>
+
+        <p>
+          Application Year
+        </p>
+
+        <p>
+          Prepare your materials, meet deadlines,
+          and submit applications.
+        </p>
+
       </div>
 
+
       <div class="roadmap-card" onclick="showStage('accepted')">
-        <h3>4. Accepted</h3>
-        <p>Transfer</p>
-        <p>Finalize your plans and prepare for your new university.</p>
+
+        <div class="roadmap-number">
+          Step 04
+        </div>
+
+        <h3>Accepted</h3>
+
+        <p>
+          Transfer
+        </p>
+
+        <p>
+          Finalize your plans and prepare
+          for your new university.
+        </p>
+
       </div>
+
 
     </div>
 
 
     <!-- FIRST YEAR -->
+
     <div class="stage" id="first-year">
 
       <div class="stage-header">
-        <h3>Exploring — First Year</h3>
+
+        <h3>
+          Exploring — First Year
+        </h3>
 
         <p>
           Start exploring your academic and transfer options early.
           You don't need to have everything figured out yet.
         </p>
+
       </div>
+
 
       <div class="progress-container">
 
         <div class="progress-label">
+
           <span>Your Progress</span>
-          <span id="progress-first-year">0%</span>
+
+          <span id="progress-first-year">
+            0%
+          </span>
+
         </div>
 
         <div class="progress-bar">
-          <div class="progress-fill" id="bar-first-year"></div>
+
+          <div
+            class="progress-fill"
+            id="bar-first-year">
+          </div>
+
         </div>
 
       </div>
+
 
       <ul class="checklist">
 
@@ -667,29 +857,46 @@
 
 
     <!-- SECOND YEAR -->
+
     <div class="stage" id="second-year">
 
       <div class="stage-header">
-        <h3>Preparing — Second Year</h3>
+
+        <h3>
+          Preparing — Second Year
+        </h3>
 
         <p>
           Begin narrowing your choices and make sure you understand
           exactly what each university requires.
         </p>
+
       </div>
+
 
       <div class="progress-container">
 
         <div class="progress-label">
+
           <span>Your Progress</span>
-          <span id="progress-second-year">0%</span>
+
+          <span id="progress-second-year">
+            0%
+          </span>
+
         </div>
 
         <div class="progress-bar">
-          <div class="progress-fill" id="bar-second-year"></div>
+
+          <div
+            class="progress-fill"
+            id="bar-second-year">
+          </div>
+
         </div>
 
       </div>
+
 
       <ul class="checklist">
 
@@ -734,29 +941,46 @@
 
 
     <!-- APPLICATION YEAR -->
+
     <div class="stage" id="application-year">
 
       <div class="stage-header">
-        <h3>Applying — Application Year</h3>
+
+        <h3>
+          Applying — Application Year
+        </h3>
 
         <p>
           It's time to turn your preparation into applications.
           Keep track of every requirement and deadline.
         </p>
+
       </div>
+
 
       <div class="progress-container">
 
         <div class="progress-label">
+
           <span>Your Progress</span>
-          <span id="progress-application-year">0%</span>
+
+          <span id="progress-application-year">
+            0%
+          </span>
+
         </div>
 
         <div class="progress-bar">
-          <div class="progress-fill" id="bar-application-year"></div>
+
+          <div
+            class="progress-fill"
+            id="bar-application-year">
+          </div>
+
         </div>
 
       </div>
+
 
       <ul class="checklist">
 
@@ -806,29 +1030,46 @@
 
 
     <!-- ACCEPTED -->
+
     <div class="stage" id="accepted">
 
       <div class="stage-header">
-        <h3>Accepted — Preparing to Transfer</h3>
+
+        <h3>
+          Accepted — Preparing to Transfer
+        </h3>
 
         <p>
           Congratulations! Now it's time to finalize your transfer
           and prepare for your new university.
         </p>
+
       </div>
+
 
       <div class="progress-container">
 
         <div class="progress-label">
+
           <span>Your Progress</span>
-          <span id="progress-accepted">0%</span>
+
+          <span id="progress-accepted">
+            0%
+          </span>
+
         </div>
 
         <div class="progress-bar">
-          <div class="progress-fill" id="bar-accepted"></div>
+
+          <div
+            class="progress-fill"
+            id="bar-accepted">
+          </div>
+
         </div>
 
       </div>
+
 
       <ul class="checklist">
 
@@ -879,84 +1120,301 @@
   </section>
 
 
-  <!-- RESOURCES -->
-  <section id="resources">
+  <!-- =========================
+       SCHOLARSHIP DATABASE
+  ========================= -->
 
-    <h2>Quick Resources</h2>
+  <section id="scholarships">
+
+    <h2>Scholarship Database</h2>
 
     <p class="section-intro">
-      Useful places to start researching your transfer journey.
+      Find scholarships and funding opportunities that may help support
+      your education and transfer journey.
     </p>
 
-    <div class="resources-grid">
 
-      <div class="resource-card">
-        <h3>Madison College</h3>
+    <div class="scholarship-controls">
 
-        <p>
-          Explore academic programs, transfer information,
-          student services, and campus opportunities.
-        </p>
+      <input
+        type="text"
+        id="scholarshipSearch"
+        placeholder="Search scholarships..."
+        onkeyup="filterScholarships()"
+      >
 
-        <a href="https://madisoncollege.edu/" target="_blank">
-          Visit Madison College →
+
+      <select
+        id="scholarshipCategory"
+        onchange="filterScholarships()"
+      >
+
+        <option value="all">
+          All Categories
+        </option>
+
+        <option value="madison-college">
+          Madison College
+        </option>
+
+        <option value="transfer">
+          Transfer
+        </option>
+
+        <option value="academic">
+          Academic
+        </option>
+
+        <option value="leadership">
+          Leadership
+        </option>
+
+        <option value="community">
+          Community Service
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div
+      class="scholarship-list"
+      id="scholarshipList"
+    >
+
+
+      <!-- MADISON COLLEGE FOUNDATION SCHOLARSHIPS -->
+
+      <div
+        class="scholarship-card"
+        data-category="madison-college"
+        data-search="Madison College Foundation scholarships Madison College students"
+      >
+
+        <div class="scholarship-info">
+
+          <h3>
+            Madison College Foundation Scholarships
+          </h3>
+
+          <p>
+            Scholarships specifically for Madison College students.
+            Students use one application to be considered for multiple
+            Foundation scholarships.
+          </p>
+
+          <div class="scholarship-details">
+
+            <span>
+              🎓 Madison College
+            </span>
+
+            <span>
+              💰 Varies
+            </span>
+
+            <span>
+              📅 Twice yearly
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <a
+          href="https://madisoncollege.academicworks.com/"
+          target="_blank"
+          class="scholarship-button"
+        >
+          Apply / Learn More →
         </a>
+
       </div>
 
 
-      <div class="resource-card">
-        <h3>Transfer Planning</h3>
+      <!-- JACK KENT COOKE SCHOLARSHIP -->
 
-        <p>
-          Research transfer pathways, universities,
-          majors, and credit requirements.
-        </p>
+      <div
+        class="scholarship-card"
+        data-category="transfer"
+        data-search="Jack Kent Cooke Undergraduate Transfer Scholarship community college transfer"
+      >
 
-        <a href="https://madisoncollege.edu/transfer" target="_blank">
-          Explore Transfer Information →
+        <div class="scholarship-info">
+
+          <h3>
+            Jack Kent Cooke Undergraduate Transfer Scholarship
+          </h3>
+
+          <p>
+            A national scholarship for high-achieving community college
+            students planning to transfer to a four-year institution.
+          </p>
+
+          <div class="scholarship-details">
+
+            <span>
+              🎓 Community College Transfer
+            </span>
+
+            <span>
+              💰 Up to $55,000/year
+            </span>
+
+            <span>
+              📅 December 9, 2026
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <a
+          href="https://www.jkcf.org/our-scholarships/undergraduate-transfer-scholarship/"
+          target="_blank"
+          class="scholarship-button"
+        >
+          View Scholarship →
         </a>
+
       </div>
 
-
-      <div class="resource-card">
-        <h3>Scholarships</h3>
-
-        <p>
-          Explore scholarships and other funding opportunities
-          that may help pay for your education.
-        </p>
-
-        <a href="https://madisoncollege.edu/financial-aid/scholarships" target="_blank">
-          Explore Scholarships →
-        </a>
-      </div>
 
     </div>
 
   </section>
 
 
-  <!-- HELP -->
+  <!-- =========================
+       RESOURCES
+  ========================= -->
+
+  <section id="resources">
+
+    <h2>
+      Opportunities & Resources
+    </h2>
+
+    <p class="section-intro">
+      Useful places to start researching your transfer journey.
+    </p>
+
+
+    <div class="resources-grid">
+
+
+      <div class="resource-card">
+
+        <h3>
+          Madison College
+        </h3>
+
+        <p>
+          Explore academic programs, transfer information,
+          student services, and campus opportunities.
+        </p>
+
+        <a
+          href="https://madisoncollege.edu/"
+          target="_blank"
+        >
+          Visit Madison College →
+        </a>
+
+      </div>
+
+
+      <div class="resource-card">
+
+        <h3>
+          Transfer Planning
+        </h3>
+
+        <p>
+          Research transfer pathways, universities,
+          majors, and credit requirements.
+        </p>
+
+        <a
+          href="https://madisoncollege.edu/transfer"
+          target="_blank"
+        >
+          Explore Transfer Information →
+        </a>
+
+      </div>
+
+
+      <div class="resource-card">
+
+        <h3>
+          Financial Aid
+        </h3>
+
+        <p>
+          Learn about financial aid, scholarships,
+          and other ways to help pay for college.
+        </p>
+
+        <a
+          href="https://madisoncollege.edu/paying-for-college/financial-aid"
+          target="_blank"
+        >
+          Explore Financial Aid →
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       HELP
+  ========================= -->
+
   <section id="help">
 
-    <h2>Need Help?</h2>
+    <h2>
+      Need Help?
+    </h2>
 
     <p class="section-intro">
       You don't have to figure out the transfer process alone.
     </p>
 
+
     <div class="help-box">
 
       <p>
         If you're unsure about your next step, consider reaching out
-        to the appropriate Madison College support office or your academic advisor.
+        to the appropriate Madison College support office or your
+        academic advisor.
       </p>
 
       <ul>
-        <li>Talk with your academic advisor about your academic plan.</li>
-        <li>Research universities early so you know their requirements.</li>
-        <li>Keep a personal list of deadlines and scholarship opportunities.</li>
-        <li>Ask questions when you're unsure about credits or requirements.</li>
+
+        <li>
+          Talk with your academic advisor about your academic plan.
+        </li>
+
+        <li>
+          Research universities early so you know their requirements.
+        </li>
+
+        <li>
+          Keep a personal list of deadlines and scholarship opportunities.
+        </li>
+
+        <li>
+          Ask questions when you're unsure about credits or requirements.
+        </li>
+
       </ul>
 
     </div>
@@ -964,173 +1422,273 @@
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
 
-    <strong>Madison College Transfer Hub</strong>
+    <strong>
+      Madison College Transfer Hub
+    </strong>
 
     <p>
-      A student-created resource designed to make the transfer process easier to navigate.
+      A student-created resource designed to make the transfer
+      process easier to navigate.
     </p>
 
   </footer>
 
 
-  <!-- JAVASCRIPT -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
 
-    /* SHOW A ROADMAP STAGE */
+
+    /* =========================
+       ROADMAP STAGES
+    ========================= */
+
     function showStage(stage) {
 
       const stages = document.querySelectorAll(".stage");
 
       stages.forEach(function(item) {
+
         item.classList.remove("active");
+
       });
 
-      const selectedStage = document.getElementById(stage);
+
+      const selectedStage =
+        document.getElementById(stage);
+
 
       if (selectedStage) {
+
         selectedStage.classList.add("active");
 
         selectedStage.scrollIntoView({
           behavior: "smooth",
           block: "start"
         });
+
       }
+
     }
 
 
-    /* UPDATE PROGRESS */
+    /* =========================
+       UPDATE PROGRESS
+    ========================= */
+
     function updateProgress(stage) {
 
-      const checkboxes = document.querySelectorAll(
-        'input[data-stage="' + stage + '"]'
-      );
+      const checkboxes =
+        document.querySelectorAll(
+          'input[data-stage="' + stage + '"]'
+        );
+
 
       let completed = 0;
+
 
       checkboxes.forEach(function(checkbox) {
 
         if (checkbox.checked) {
+
           completed++;
+
         }
 
       });
 
+
       const total = checkboxes.length;
+
 
       let percentage = 0;
 
+
       if (total > 0) {
-        percentage = Math.round((completed / total) * 100);
+
+        percentage =
+          Math.round((completed / total) * 100);
+
       }
 
-      const progressText = document.getElementById(
-        "progress-" + stage
-      );
 
-      const progressBar = document.getElementById(
-        "bar-" + stage
-      );
+      const progressText =
+        document.getElementById(
+          "progress-" + stage
+        );
+
+
+      const progressBar =
+        document.getElementById(
+          "bar-" + stage
+        );
+
 
       if (progressText) {
-        progressText.textContent = percentage + "%";
+
+        progressText.textContent =
+          percentage + "%";
+
       }
 
+
       if (progressBar) {
-        progressBar.style.width = percentage + "%";
+
+        progressBar.style.width =
+          percentage + "%";
+
       }
+
     }
 
 
-    /* SAVE CHECKLIST PROGRESS */
-    const checkboxes = document.querySelectorAll(
-      '.checklist input[type="checkbox"]'
-    );
+    /* =========================
+       SAVE CHECKLIST PROGRESS
+    ========================= */
+
+    const checkboxes =
+      document.querySelectorAll(
+        '.checklist input[type="checkbox"]'
+      );
+
 
     checkboxes.forEach(function(checkbox) {
 
-      const stage = checkbox.dataset.stage;
-      const task = checkbox.dataset.task;
+      const stage =
+        checkbox.dataset.stage;
+
+      const task =
+        checkbox.dataset.task;
+
 
       const storageKey =
-        "transferHub-" + stage + "-" + task;
+        "transferHub-" +
+        stage +
+        "-" +
+        task;
 
 
-      /* LOAD SAVED CHECKBOX */
-      const savedState = localStorage.getItem(storageKey);
+      const savedState =
+        localStorage.getItem(storageKey);
+
 
       if (savedState === "true") {
+
         checkbox.checked = true;
+
       }
 
 
-      /* SAVE WHEN CLICKED */
-      checkbox.addEventListener("change", function() {
+      checkbox.addEventListener(
+        "change",
+        function() {
 
-        localStorage.setItem(
-          storageKey,
-          checkbox.checked
-        );
+          localStorage.setItem(
+            storageKey,
+            checkbox.checked
+          );
 
-        updateProgress(stage);
 
-      });
+          updateProgress(stage);
+
+        }
+      );
 
     });
 
 
-    /* INITIALIZE PROGRESS */
+    /* =========================
+       INITIALIZE PROGRESS
+    ========================= */
+
     updateProgress("first-year");
+
     updateProgress("second-year");
+
     updateProgress("application-year");
+
     updateProgress("accepted");
 
 
-    /* OPEN FIRST STAGE BY DEFAULT */
+    /* =========================
+       OPEN FIRST STAGE
+    ========================= */
+
     showStage("first-year");
-/* SCHOLARSHIP SEARCH AND FILTER */
 
-function filterScholarships() {
 
-  const searchInput = document
-    .getElementById("scholarshipSearch")
-    .value
-    .toLowerCase();
+    /* =========================
+       SCHOLARSHIP SEARCH
+    ========================= */
 
-  const category = document
-    .getElementById("scholarshipCategory")
-    .value;
+    function filterScholarships() {
 
-  const scholarships = document.querySelectorAll(
-    ".scholarship-card"
-  );
+      const searchInput =
+        document
+          .getElementById("scholarshipSearch")
+          .value
+          .toLowerCase();
 
-  scholarships.forEach(function(scholarship) {
 
-    const searchText =
-      scholarship.dataset.search.toLowerCase();
+      const category =
+        document
+          .getElementById("scholarshipCategory")
+          .value;
 
-    const scholarshipCategory =
-      scholarship.dataset.category;
 
-    const matchesSearch =
-      searchText.includes(searchInput);
+      const scholarships =
+        document.querySelectorAll(
+          ".scholarship-card"
+        );
 
-    const matchesCategory =
-      category === "all" ||
-      scholarshipCategory === category;
 
-    if (matchesSearch && matchesCategory) {
-      scholarship.style.display = "flex";
-    } else {
-      scholarship.style.display = "none";
+      scholarships.forEach(function(scholarship) {
+
+        const searchText =
+          scholarship.dataset.search
+            .toLowerCase();
+
+
+        const scholarshipCategory =
+          scholarship.dataset.category;
+
+
+        const matchesSearch =
+          searchText.includes(searchInput);
+
+
+        const matchesCategory =
+          category === "all" ||
+          scholarshipCategory === category;
+
+
+        if (
+          matchesSearch &&
+          matchesCategory
+        ) {
+
+          scholarship.style.display =
+            "flex";
+
+        } else {
+
+          scholarship.style.display =
+            "none";
+
+        }
+
+      });
+
     }
 
-  });
-
-}
   </script>
 
 </body>
