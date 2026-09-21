@@ -224,7 +224,175 @@
       text-decoration: line-through;
       color: #888;
     }
+<!-- SCHOLARSHIP DATABASE -->
+<section id="scholarships">
 
+  <h2>Scholarship Database</h2>
+
+  <p class="section-intro">
+    Find scholarships and funding opportunities that may help support
+    your education and transfer journey.
+  </p>
+
+  <div class="scholarship-controls">
+
+    <input
+      type="text"
+      id="scholarshipSearch"
+      placeholder="Search scholarships..."
+      onkeyup="filterScholarships()"
+    >
+
+    <select id="scholarshipCategory" onchange="filterScholarships()">
+      <option value="all">All Categories</option>
+      <option value="madison-college">Madison College</option>
+      <option value="transfer">Transfer</option>
+      <option value="academic">Academic</option>
+      <option value="leadership">Leadership</option>
+      <option value="community">Community Service</option>
+    </select>
+
+  </div>
+
+
+  <div class="scholarship-list" id="scholarshipList">
+
+    <!-- SCHOLARSHIP 1 -->
+    <div
+      class="scholarship-card"
+      data-category="madison-college"
+      data-search="Madison College scholarships students"
+    >
+
+      <div class="scholarship-info">
+
+        <h3>Madison College Scholarships</h3>
+
+        <p>
+          Scholarships available to eligible Madison College students.
+        </p>
+
+        <div class="scholarship-details">
+          <span>🎓 Madison College</span>
+          <span>💰 Varies</span>
+          <span>📅 Varies</span>
+        </div>
+
+      </div>
+
+      <a
+        href="https://madisoncollege.edu/financial-aid/scholarships"
+        target="_blank"
+        class="scholarship-button"
+      >
+        View Scholarship →
+      </a>
+
+    </div>
+
+
+    <!-- MORE SCHOLARSHIPS WILL GO HERE -->
+
+  </div>
+
+</section>
+    /* SCHOLARSHIP DATABASE */
+
+.scholarship-controls {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.scholarship-controls input,
+.scholarship-controls select {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+}
+
+.scholarship-controls input {
+  flex: 1;
+  min-width: 250px;
+}
+
+.scholarship-controls select {
+  min-width: 200px;
+}
+
+.scholarship-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.scholarship-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  transition: 0.2s;
+}
+
+.scholarship-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.scholarship-info {
+  flex: 1;
+}
+
+.scholarship-info h3 {
+  margin-bottom: 7px;
+}
+
+.scholarship-info p {
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.scholarship-details {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.scholarship-button {
+  background: #222;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.scholarship-button:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+
+  .scholarship-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .scholarship-button {
+    width: 100%;
+    text-align: center;
+  }
+
+}
     /* RESOURCES */
     .resources-grid {
       display: grid;
@@ -887,7 +1055,47 @@
 
     /* OPEN FIRST STAGE BY DEFAULT */
     showStage("first-year");
+/* SCHOLARSHIP SEARCH AND FILTER */
 
+function filterScholarships() {
+
+  const searchInput = document
+    .getElementById("scholarshipSearch")
+    .value
+    .toLowerCase();
+
+  const category = document
+    .getElementById("scholarshipCategory")
+    .value;
+
+  const scholarships = document.querySelectorAll(
+    ".scholarship-card"
+  );
+
+  scholarships.forEach(function(scholarship) {
+
+    const searchText =
+      scholarship.dataset.search.toLowerCase();
+
+    const scholarshipCategory =
+      scholarship.dataset.category;
+
+    const matchesSearch =
+      searchText.includes(searchInput);
+
+    const matchesCategory =
+      category === "all" ||
+      scholarshipCategory === category;
+
+    if (matchesSearch && matchesCategory) {
+      scholarship.style.display = "flex";
+    } else {
+      scholarship.style.display = "none";
+    }
+
+  });
+
+}
   </script>
 
 </body>
